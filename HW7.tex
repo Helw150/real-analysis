@@ -1,0 +1,87 @@
+% --------------------------------------------------------------
+% This is all preamble stuff that you don't have to worry about.
+% Head down to where it says "Start here"
+% --------------------------------------------------------------
+ 
+\documentclass[12pt]{article}
+ 
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+ 
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{reflection}[2][Reflection]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{proposition}[2][Proposition]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+ 
+\begin{document}
+ 
+% --------------------------------------------------------------
+%                         Start here
+% --------------------------------------------------------------
+ 
+%\renewcommand{\qedsymbol}{\filledbox}
+ 
+\title{Homework 4}%replace X with the appropriate number
+\author{William Held\\ %replace with your name
+Real Analysis} %if necessary, replace with your course title
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\abs}[1]{|#1|}
+\newcommand{\ceil}[1]{\left \lceil #1 \right \rceil }
+\newcommand{\floor}[1]{\left \lfloor #1 \right \rfloor }
+\let\biconditional\leftrightarrow
+\maketitle
+\begin{exercise}{1.1}
+Describe Cauchy sequences in the discrete space. Is it complete?
+\end{exercise}
+Cauchy Sequences in the discrete space must eventually be repetitions of the same value since for any $\epsilon < 1$, the two points must be the same to meet the cauchy condition. This is complete since the limit must be inside the sequence.
+
+\begin{exercise}{1.2}
+Prove that a sequence in R has +infty (-infty) as its partial limit if and only if it is not bounded above (resp., below).
+\end{exercise}
+Assume that you have a sequence that is not bounded from above. Therefore, for any element of the sequence x and real number M, there is an element y later in the sequence s.t. y > x+M . Let x initially be the first element of the sequence, and add it to the sub-sequence. Then, for each x let $M=x$ and pick y as described before, let x now be y and repeat the process. This creates a sub-sequence where every element is twice as large as the previous element. For any real number N, iterate through the sequence until you find an element, z, greater than N. Since the sub-sequence is strictly increasing, all elements following z are greater than N. Therefore, this subsequence has limit $+\infty$ and the sequence has limit $+\infty$.
+
+Assume you have a sequence for which $+\infty$ is a partial limit. Therefore, there exists a subsequence s.t. for any real number M there exists an element of the subsequence that is greater than M. For any element x and real number N, let M = x+N. By definition, there exists an element of the subsequence greater than x+N. Since every element of the subsequence is a member of the sequence, this means that for any element x and real number N, there is an element of the sequence greater than their sum. This means that the sequence is unbounded.
+
+\begin{exercise}{1.3}
+Prove that a sequence in R converges (in the generalized sense, that is, when plus/minus infinity are allowed) if and only if it has exactly one partial limit. 
+\end{exercise}
+If a sequence is convergent to a, this means that for any $\epsilon$ there exists an N s.t. all values of $x_n$ where $n > N$ have $x_n - a < \epsilon$. For any infinite sub-sequence, there is an $x_n$ s.t. all following elements of the sub-sequence must have indices in the original sequence greater than N. Therefore, by definition the distance from these points to a is less than $\epsilon$. Since epsilon is arbitrary, this means that any infinite sub-sequence also converges to a. Therefore, no sub-sequences converge to anything besides a and there is only one partial limit. 
+
+\begin{exercise}{2.1}
+Prove that if $x_n$ squared converges to a and $x_n$ are positive, then they converge to the square root of a.
+\end{exercise}
+If $x_n$ squared converges to a, that means that for any $\epsilon$ there is an n such that $\abs{x_{n}^2 - a} < \epsilon$. Therefore, $\abs{x_n-\sqrt{a}}\abs{x_n+\sqrt{a}} < \epsilon$ and $\abs{x_n-\sqrt{a}} < \frac{\epsilon}{\abs{x_n+\sqrt{a}}}$. Since $\epsilon$ is arbitrary we can choose it such that $\epsilon = \epsilon_2*\abs{x_n+\sqrt{a}}$. Therefore, $x_n$ converges to $\sqrt{a}$.
+
+\begin{exercise}{2.2} 
+Derive the conversion rule for periodic decimal fractions. 
+\end{exercise}
+... don't even really know where to begin
+
+\begin{exercise}{2.3} 
+Derive statement 3.20b for $p<1$ from the already proven case $p>1$.
+\end{exercise}
+If p is less than 1, then consider $p^-1$. Since $p < 1$, $p^{-1} > 1$. Therefore, we know that $lim_{n\to\infty}\sqrt[\leftroot{-2}\uproot{2}n]{p^-{1}} = 1$. Therefore, $1 - \sqrt[\leftroot{-2}\uproot{2}n]{p^{-1}} < \epsilon \therefore -\sqrt[\leftroot{-2}\uproot{2}n]{p^{-1}} < \epsilon - 1 \therefore p^{-1} > (1-\epsilon)^n \therefore p < \frac{1}{(1-\epsilon)^n} \therefore p - 1 < \frac{1-(1-\epsilon)^n}{(1-\epsilon)^n}$. Let $\epsilon_2 = \frac{1-(1-\epsilon)^n}{(1-\epsilon)^n}$. Therefore, the statement 0<p<1 approaches one as well via reciprocals.
+
+\begin{exercise}{2.1}
+Also, problem 16a from Rudin's Chapter 3. 
+\end{exercise}
+If $x_n > \sqrt{\alpha}$, then $\frac{1}{2}(x_n + \frac{\alpha}{x_n})$ and $\frac{\alpha}{x_n}<\sqrt{\alpha}<x_n$. Therefore, $\frac{1}{2}(x_n + \frac{\alpha}{x_n}) < \frac{1}{2}(x_n + x_n) \therefore \frac{1}{2}(x_n + \frac{\alpha}{x_n}) < x_n$. Therefore, the series is monotonically decreasing as long as $x_n > \sqrt{a}$.
+
+$x_{n+1} - \sqrt{a} = \frac{1}{2}(x_n + \frac{\alpha}{x_n}) - \sqrt{a}$... don't know how to finish
+% --------------------------------------------------------------
+%     You don't have to mess with anything below this line.
+% --------------------------------------------------------------
+ 
+\end{document}

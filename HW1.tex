@@ -1,0 +1,83 @@
+% --------------------------------------------------------------
+% This is all preamble stuff that you don't have to worry about.
+% Head down to where it says "Start here"
+% --------------------------------------------------------------
+ 
+\documentclass[12pt]{article}
+ 
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb}
+ 
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+ 
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{reflection}[2][Reflection]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{proposition}[2][Proposition]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+ 
+\begin{document}
+ 
+% --------------------------------------------------------------
+%                         Start here
+% --------------------------------------------------------------
+ 
+%\renewcommand{\qedsymbol}{\filledbox}
+ 
+\title{Homework 1}%replace X with the appropriate number
+\author{William Held\\%replace with your name
+Real Analysis} %if necessary, replace with your course title
+ 
+\maketitle
+ 
+\begin{proposition}{1} %You can use theorem, proposition, exercise, or reflection here.  Modify x.yz to be whatever number you are proving
+A rational number only has a rational square root if both its numerator and its denominator are perfect squares.
+\end{proposition}
+ 
+\begin{proof}
+Let X be a rational number whose square root is also rational. For the sake of contradiction, assume that either the denominator or the numerator of X is not a perfect square. If $\sqrt[]{X}$ is rational, then we know that both the numerator and the denominator of $\sqrt[]{X}$ are integers. If the numerator of $\sqrt[]{X}$ is an integer, then the numerator of X must be a perfect square. If the denominator of $\sqrt[]{X}$ is an integer, then the denominator of X must be a perfect square. Thus, we have a contradiction with our assumption. Therefore, the numerator and the denominator of X must be perfect squares if $\sqrt[]{X}$ is rational by contradiction.
+\end{proof}
+ 
+\begin{exercise}{2}
+Let S be a set of points whose connections form a hierarchical tree. Let A $\propto$ B signify that A is a parent node of B. This is a partial ordering, as two points that are not on the same branch of the tree cannot be compared.
+\end{exercise}
+
+\begin{theorem}{1}
+The least-upper-bound of a subset S of an ordered set T is the least element in T that is greater than or equal to all elements of S, if such an element exists.
+\end{theorem}
+\begin{proposition}{3}
+If the least-upper-bound of a set exists, then it is unique.
+\end{proposition}
+\begin{proof}
+Let S be a set for which there is at least one upper bound in T. Let X be a least-upper-bound that we know, but assume for the sake of contradiction that there is at least one other Y that is also a least-upper-bound. If $X<Y$, then X is by definition not the least element in T that meets the conditions of Theorem 1. If $Y<X$, then Y is by definition not the least element in T that meets the conditions of Theorem 1. If neither $Y<X$ nor $X<Y$, then $X=Y$. Thus we have a contradiction in our assumption. By contradiction, we know that there cannot be any other Y that is also a least-upper-bound therefore X must be unique if it exists.
+\end{proof}
+
+\begin{theorem}{2}
+A set S has the least-upper-bound property if and only if every non-empty subset of S with an upper bound has a least-upper-bound in S. 
+\end{theorem}
+\begin{proposition}{4}
+$\N$ and $\Z$ have the least-upper-bound property as defined by Theorem 2.
+\end{proposition}
+\begin{proof}
+Assume the base case of a subset of $\N$ or $\Z$ which only contains a single element. The single element is an upper bound.
+
+Assume the general case where we are given a subset of $\N$ or $\Z$ for which we know there is a least-upper-bound. Let X be the least-upper-bound of this subset. Add a new element from $\N$ or $\Z$ to the subset and call it Y. Since we only have to consider non-decimal numbers, we know that either $Y\geq X+1$ or $Y\leq X+1$. If $Y\geq X+1$ it is now the least-upper-bound of the set. If $Y\leq X+1$ X remains the least-upper-bound of the set.
+
+Therefore, by induction, any subset of $\N$ or $\Z$ has a least-upper-bound and therefore $\N$ and $\Z$ have the least-upper-bound property.
+\end{proof}
+
+
+ 
+% --------------------------------------------------------------
+%     You don't have to mess with anything below this line.
+% --------------------------------------------------------------
+ 
+\end{document}

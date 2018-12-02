@@ -1,0 +1,85 @@
+% --------------------------------------------------------------
+% This is all preamble stuff that you don't have to worry about.
+% Head down to where it says "Start here"
+% --------------------------------------------------------------
+ 
+\documentclass[12pt]{article}
+ 
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+ 
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{reflection}[2][Reflection]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{proposition}[2][Proposition]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+ 
+\begin{document}
+ 
+% --------------------------------------------------------------
+%                         Start here
+% --------------------------------------------------------------
+ 
+%\renewcommand{\qedsymbol}{\filledbox}
+ 
+\title{Homework 8}%replace X with the appropriate number
+\author{William Held\\ %replace with your name
+Real Analysis} %if necessary, replace with your course title
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\abs}[1]{|#1|}
+\newcommand{\ceil}[1]{\left \lceil #1 \right \rceil }
+\newcommand{\floor}[1]{\left \lfloor #1 \right \rfloor }
+\let\biconditional\leftrightarrow
+\maketitle
+
+\begin{exercise}{1.1}
+Apply the root and ratio test to the series $\frac{1}{2}+\frac{1}{3}+\frac{1}{2^2}+\frac{1}{3^2}+$...
+\end{exercise}
+Root Test: Let $a_n=\frac{1}{2^n}+\frac{1}{3^n}$. $\displaystyle{\lim_{n \to \infty}(\frac{1}{2^n}+\frac{1}{3^n})^\frac{1}{n}} < 1$ therefore the series above is convergent.
+Ratio Test: Let $a_n=\frac{1}{2^n}+\frac{1}{3^n}$. $\displaystyle{\lim_{n \to \infty}(\frac{\frac{1}{2^{n+1}}+\frac{1}{3^{n+1}}}{\frac{1}{2^n}+\frac{1}{3^n}})=\lim_{n \to \infty}(\frac{2^n+3^n}{2^{n+1}+3^{n+1}}) = 1}$ therefore the test is inconclusive.
+\begin{exercise}{1.2}
+Let $a_n$ be positive non-increasing. Show that $a_1-a_2+a_3-a_4+...+(-1)^{n+1}a_n$ is non-negative and does not exceed $a_1$. Hint: Consider odd n first, even n after that.
+\end{exercise}
+First, assume that n is odd.
+$a_1-a_2+a_3-a_4+...+(-1)^{n+1}a_n \leq a_1-a_3+a_3-a_5+...+a_n = a_1$, therefore if n is odd the series does not exceed $a_1$. 
+$a_1-a_2+a_3-a_4+...+(-1)^{n+1}a_n \geq a_1-a_1+a_3-a_3+...+a_n = a_n > 0$, therefore if n is odd the series cannot be less than 0.
+\vspace{12pt} \\
+Then, assume that n is even.
+$a_1-a_2+a_3-a_4+...+(-1)^{n+1}a_n \leq a_1-a_3+a_3-a_5+...-a_n = a_1-a_n < a_1$, therefore if n is odd the series does not exceed $a_1$. 
+$a_1-a_2+a_3-a_4+...+(-1)^{n+1}a_n \geq a_1-a_1+a_3-a_3+...-a_n = 0$, therefore if n is odd the series cannot be less than 0.
+
+\begin{exercise}{1.3}
+Also, problems 6(a-c) from Rudin's Chapter 3.
+\end{exercise}
+a. $\displaystyle{\lim_{n \to \infty}(\sqrt{n+1}-\sqrt{n})^\frac{1}{n} = 1$. Therefore, the test is inconclusive. Multiply $a_n$ by $\frac{\sqrt{n+1}+\sqrt{n}}{\sqrt{n+1}+\sqrt{n}}$. Then, $a_n=\frac{(n+1-n)}{\sqrt{n+1}+\sqrt{n}}=\frac{1}{\sqrt{n+1}+\sqrt{n}}>\frac{1}{2\sqrt{n+1}}$. Therefore, it diverges.\\
+b. $\displaystyle{\lim_{n \to \infty}\frac{\frac{\sqrt{n+2}-\sqrt{n+1}}{n+1}}{\frac{\sqrt{n+1}-\sqrt{n}}{n}} = \displaystyle{\lim_{n \to \infty}\frac{n(\sqrt{n+2}-\sqrt{n+1})}{(n+1)(\sqrt{n+1}-\sqrt{n})} = 1$. Test is inconclusive. $\displaystyle{\lim_{n \to \infty}(\frac{\sqrt{n+1}-\sqrt{n}}{n})^{\frac{1}{n}}=1$. Test is inconclusive. From the prior, we can rewrite this as $a_n=\frac{1}{n(\sqrt{n+1}+\sqrt{n})}<\frac{1}{n^2}$. Therefore, it converges.\\
+c.$\displaystyle{\lim_{n \to \infty}((n^{\frac{1}{n}}-1)^n)^{\frac{1}{n}}=-1+\displaystyle{\lim_{n \to \infty}(n^{\frac{1}{n}})=-1+1=0$. Therefore, the series is convergent.
+
+
+\begin{exercise}{2.1}
+Problems 9 from Rudin Chapter 3. 
+\end{exercise}
+a. Radius of convergence = $\displaystyle{\lim_{n \to \infty}\frac{n^3}{(n+1)^3} = 1$ \\
+b. Radius of convergence = $\displaystyle{\lim_{n \to \infty}\frac{\frac{2^n}{n!}}{\frac{2^{(n+1)}}{(n+1)!}} = \displaystyle{\lim_{n \to \infty}\frac{2^n*(n+1)!}{2^{n+1}*n!}=\lim_{n \to \infty}\frac{2^n*(n+1)}{2^{n+1}}=$\\$\lim_{n \to \infty}\frac{2^n}{2^{n+1}}+\lim_{n \to \infty}(n+1)= 1+ \infty = \infty$\\
+c. Radius of convergence = $\displaystyle{\lim_{n \to \infty}\frac{\frac{2^n}{n^2}}{\frac{2^{(n+1)}}{(n+1)^2}} = \lim_{n \to \infty}\frac{2^n*(n+1)^2}{2^{n+1}*n^2} = \lim_{n \to \infty}\frac{(n+1)^2}{2*n^2}=\frac{1}{2}\lim_{n \to \infty}\frac{(n+1)^2}{n^2}=\frac{1}{2}$
+d. Radius of convergence = $\displaystyle{\lim_{n \to \infty}\frac{\frac{n^3}{3^n}}{\frac{(n+1)^{3}}{3^{(n+1)}}} = \lim_{n \to \infty}\frac{n^3*3^{n+1}}{(n+1)^3*3^n} = \lim_{n \to \infty}\frac{3n^3}{(n+1)^3}=3$ 
+\begin{exercise}{2.2}
+Problems 10 from Rudin Chapter 3. 
+\end{exercise}
+If $\abs{z} > 1$, then as n goes to infinity the general term also goes to infinity, making the series divergent. Therefore, $\abs{z}$ is at most 1. 
+% --------------------------------------------------------------
+%     You don't have to mess with anything below this line.
+% --------------------------------------------------------------
+ 
+\end{document}

@@ -1,0 +1,89 @@
+% --------------------------------------------------------------
+% This is all preamble stuff that you don't have to worry about.
+% Head down to where it says "Start here"
+% --------------------------------------------------------------
+ 
+\documentclass[12pt]{article}
+ 
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+ 
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{reflection}[2][Reflection]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{proposition}[2][Proposition]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+ 
+\begin{document}
+ 
+% --------------------------------------------------------------
+%                         Start here
+% --------------------------------------------------------------
+ 
+%\renewcommand{\qedsymbol}{\filledbox}
+ 
+\title{Homework 9}%replace X with the appropriate number
+\author{William Held\\ %replace with your name
+Real Analysis} %if necessary, replace with your course title
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\abs}[1]{|#1|}
+\newcommand{\ceil}[1]{\left \lceil #1 \right \rceil }
+\newcommand{\floor}[1]{\left \lfloor #1 \right \rfloor }
+\let\biconditional\leftrightarrow
+\maketitle
+
+\begin{exercise}{1.1}
+Which functions f: X$\rightarrow$Y are continuous if (i) X or (ii) Y is the discrete space.
+\end{exercise} 
+If X is discrete, then all functions are continuous because for any $\epsilon$ you can choose $\delta < 1$ and only the same point has distance less than $\delta$.
+If Y is discrete, then only constant functions are continuous, otherwise any $\epsilon < 1$ presents problems.
+\begin{exercise}{1.2}
+Show that the complement of the preimage is the preimage of the complement.
+\end{exercise} 
+Any point which lies in the complement of the preimage must not have an output in the image, otherwise it would lie in the preimage. Therefore, any point which lies in the complement of the preimage must lie in the preimage of the complement.
+
+Any point which lies in the preimage of the complement must not lie in the preimage, otherwise its output would have to lie in the image. Therefore, any point which lies in the preimage of the complement must lie in the complement of the preimage.
+
+Since all points in both sets must lie in the other set, they are equivalent sets.
+\begin{exercise}{1.3}
+For $f(x)=x^2$ considered on R, give examples of open sets the images of which are (i) open, (ii) not open.
+\end{exercise}
+The image of the function over any open set of positive numbers is still open.
+The image of the function over any open set of positive and negative numbers is not open.
+
+\begin{exercise}{1.4}
+ Give an example of a real-valued function f continuous on R and a closed set A such that f(A) is not closed.
+\end{exercise}
+The function $f(x) = e^x$ and the closed set of all $\mathbb{R}$. The output set is $(0, \infty]$, which is not closed.
+
+\begin{exercise}{1.5}
+ Show that a function f: X$\rightarrow$Y is continuous if and only if preimages under f of all closed (in Y) sets are also closed (in X)
+\end{exercise}
+We know that X$\rightarrow$Y is continuous if and only if pre-images under f of all open (in Y) sets are also open. 
+
+Assume that X$\rightarrow$Y is continuous, take any closed set in Y and call it S. Therefore, $S^\prime$ is open and by the above $f^{-1}(S^\prime)$ is open. Before, we proved that the preimage of the complement is the complement of the preimage. Therefore, $f^{-1}(S)$ is closed since it's complement is open.
+
+Assume that the pre-images of all closed sets are closed. Since every open set is the complement of a closed set, then all open sets must also have open pre-images. By the first statement, the function must be continuous. 
+
+\begin{exercise}{Rudin 4.1}
+Suppose f is a real function defined on $\mathbb{R}^1$ which satisfies 
+$$lim_{h\to0}[f(x+h)-f(x-h)] = 0$$
+for every $x \in \mathbb{R}^1$. Does this imply that f is continuous?
+\end{exercise}
+No, it does not. Take $f(x)$ where $x \neq 0, f(x) = 0$ and $x = 0, f(x) = 1000$. $[f(x+h)-f(x-h)]$ is 0 for all values of x and h, but the function is clearly not continuous.
+% --------------------------------------------------------------
+%     You don't have to mess with anything below this line.
+% --------------------------------------------------------------
+ 
+\end{document}

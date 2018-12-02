@@ -1,0 +1,64 @@
+% --------------------------------------------------------------
+% This is all preamble stuff that you don't have to worry about.
+% Head down to where it says "Start here"
+% --------------------------------------------------------------
+ 
+\documentclass[12pt]{article}
+ 
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+ 
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{reflection}[2][Reflection]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{proposition}[2][Proposition]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+ 
+\begin{document}
+ 
+% --------------------------------------------------------------
+%                         Start here
+% --------------------------------------------------------------
+ 
+%\renewcommand{\qedsymbol}{\filledbox}
+ 
+\title{Homework 4}%replace X with the appropriate number
+\author{William Held\\ %replace with your name
+Real Analysis} %if necessary, replace with your course title
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\abs}[1]{|#1|}
+\newcommand{\ceil}[1]{\left \lceil #1 \right \rceil }
+\newcommand{\floor}[1]{\left \lfloor #1 \right \rfloor }
+\let\biconditional\leftrightarrow
+\maketitle
+\begin{exercise}{1.1}Show that the nested intervals theorem is not true with either of the following changes in its statement: \\
+(i) the space considered is Q, not R \\
+(ii) Intervals under consideration are nested but not closed. \\
+(iii) the nested family consists of closed non-empty sets, but not necessarily intervals.
+\end{exercise}
+
+i.$\bigcap\limits_{i=0}^{\infty} \{x: \frac{\floor{i*10^i}}{10^i}<x<\frac{\ceil{i*10^i}}{10^i}\}$
+
+ii.$\bigcap\limits_{i=1}^{\infty} \{x: 0<x<\frac{1}{i}\}$
+
+iii.$\bigcap\limits_{i=1}^{\infty} \{x: i\leq x<\infty\}$
+\begin{exercise}{1.2}
+Prove directly that open intervals in R are not compact.
+\end{exercise}
+Let E be an open interval in R. Let X be any limit point that is not in E, which must exist since E is open. There exist an infinite number of points in any neighborhood of X. Let Y be the set of points in an arbitrary neighborhood of X. In an open interval, each of these points is isolated. Therefore, there exists an open cover in which there are an infinite number of open intervals that each cover only one point. If any open interval is removed, there will no longer be a cover. Therefore, an open interval is not compact.
+% --------------------------------------------------------------
+%     You don't have to mess with anything below this line.
+% --------------------------------------------------------------
+ 
+\end{document}

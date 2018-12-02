@@ -1,0 +1,97 @@
+% --------------------------------------------------------------
+% This is all preamble stuff that you don't have to worry about.
+% Head down to where it says "Start here"
+% --------------------------------------------------------------
+ 
+\documentclass[12pt]{article}
+ 
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+ 
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{reflection}[2][Reflection]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{proposition}[2][Proposition]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+ 
+\begin{document}
+ 
+% --------------------------------------------------------------
+%                         Start here
+% --------------------------------------------------------------
+ 
+%\renewcommand{\qedsymbol}{\filledbox}
+ 
+\title{Homework 4}%replace X with the appropriate number
+\author{William Held\\ %replace with your name
+Real Analysis} %if necessary, replace with your course title
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\abs}[1]{|#1|}
+\newcommand{\ceil}[1]{\left \lceil #1 \right \rceil }
+\newcommand{\floor}[1]{\left \lfloor #1 \right \rfloor }
+\let\biconditional\leftrightarrow
+\maketitle
+\begin{exercise}{1.1}
+Why it makes no sense to rewrite theorem 2.36 in the generalized form (although it is correct), as mentioned in class.
+\end{exercise}
+The proof of the generalized form depends on creating a nested series of K-cells and exploiting the properties of the corollary of 2.36. We cannot simply rewrite it in the generalized form, because then it's proof would depend on itself.
+
+\begin{exercise}{1.2}
+Prove that the union of finitely many bounded sets is bounded.
+\end{exercise}
+Base Case - Assume that there are two bounded sets. Assume their union, is not bounded. This means that there is a point x that has no point y and real number M such that d(x,y) < M. Since x must also be a member of one or both of the original two sets, then one of the sets has the same point X and is unbounded. This contradicts our assumption.
+Induction Case - Assume we have $\bigcup\limits_{i=0}^{n} E_i$ where all $E_i$ are bounded sets. By our inductive hypothesis, this Union is bounded. Then, add a new bounded set to this union, $\bigcup\limits_{i=0}^{n+1} E_i$. This can be re-written as $\bigcup\limits_{i=0}^{n} E_i \cup E_{n+1}$ which is the union of two bounded sets and the argument from the base case follows. 
+
+\begin{exercise}{1.3}
+Prove that the Cantor set is perfect.
+\end{exercise}
+Take any x in the Cantor Set. Take any $N(x)_\delta$. Let $E_n$ be every interval of the cantor series for which which x is an endpoint, getting increasingly small as n increases. Take a large enough n such that $E_n$ is contained within $N(x)_\delta$. Since both endpoints of $E_n$ are members of the Cantor set, the other endpoint is a member of the Cantor Set, not equal to x, within an arbitrary $N(x)_\delta$. Therefore, any member of P is a limit point. Since any member of the Cantor Set is a limit the set is perfect.
+
+\begin{exercise}{1.4}
+A closed ball (centered at p of radius r) by definition is the set of all points the distance of which to p is less than or equal to r. Show that closed balls are closed. 
+\end{exercise}
+Take any closed ball with center x. Take the complement of this closed ball which is $E = \{y \in \mathbb{X}; d(x,y) > r\}$. For any y in E, $d(x,y) = r + \epsilon$. Take any two points $y_g$ and $y_s$, where $d(x,y_g) = r + \epsilon*2$ and $d(x,y_s) = r + \frac{\epsilon}{2}$. These points surround y and every point between them is contained within E, therefore any y is an interior point. Since any y is an interior point the complement of our closed ball is open, which means the closed ball is closed. 
+
+\begin{exercise}{2.1}                                                                                      Show that if two sets are separated, then their subsets are separated as well.                             \end{exercise}
+Take two sets E and S. Let $E_s \subset E$ and $S_s \subset S$. Before we have shown that a limit point of a subset is a limit point of the set. Therefore, $\overline{E_s} \subset \overline{E}$ and $\overline{S_s} \subset \overline{S}$. We also know that the intersection with a subset is a subset of the intersection of the original set. Therefore, since $\overline{E} \cap S = \varnothing$ we know $\overline{E_s} \cap S_s = \varnothing$ and since $E \cap \overline{S} = \varnothing$ we know $E_s \cap \overline{S_s} = \varnothing$.
+
+\begin{exercise}{2.2}                                                                                      Derive criterion of separateness in the discrete space. Describe all its connected subsets.                \end{exercise}
+Since all points are isolated in the discrete space, then two sets are separated in the discrete space if and only if their intersection is the empty set.
+
+\begin{exercise}{2.3}                                                                                      Describe all connected subsets of R as the whole line, rays, intervals, and the empty set (given 2.47)     \end{exercise}
+
+List of all connected subsets: 1. The whole line 2. All open and closed intervals 3. All rays. 4. All singletons. 5. The empty set. 6. All half open and half closed intervals.
+
+\begin{exercise}{2.4}                                                                                      Show that Q is not connected. Also, Problems 19(b-d),20 from Rudin's Chapter 2.                            \end{exercise}
+Let $E = \{x \in \mathbb{Q}; x^2 > 2\}$ and $S = \{x \in \mathbb{Q}; x^2 < 2\}$. $E \cup S = \mathbb{Q}$. However, the intersection of these two sets is the empty set, and since these sets are closed in Q, then their closures are the same as the set themselves. Therefore, $\mathbb{Q}$ can be represented as the union of two separated sets and is therefore not connected.
+
+B. Assume two disjoint open sets are not separated. This means that there exists a limit point of one set that exists as an interior point of the other set. Since it is an interior point of the second set, there exists an open ball around it in which all points are inside of the second set. Since it is a limit point of the first set, there exists a point inside of that open ball from the first set. Therefore, there exists at least one point that is a member of both sets. This is a contradiction of disjointedness.
+
+C. By definition, no point can exist in both of these sets. Therefore, they are disjoint. Since for any point in either of these sets there exists a neighborhood of any point x where $d(p, x) = \epsilon + \delta$ with radius less than epsilon where all points are in the set, then every point is interior. THerefore, these sets are two disjoint open sets and are separated as shown above.
+
+D. Assume there is a connected metric space with at least two points that is countable. Therefore, since the real numbers are uncountable there exists a real number $\delta$ and an arbitrary point p such that there is no point x where $d(p, x) = \delta$. Therefore, the space can be segmented as described above with the real number $\delta$ as the distance for which all points are either greater than or less than away from p. We have shown any set that any such representation is separated. This is in contradiction with the assumption of connectedness. Therefore, a connected metric space must be uncountable.
+\begin{exercise}{2.5}                                                                                      Describe convergence in the discrete space.                                                                \end{exercise}                                                                                        
+The only sequences which converge in the discrete space are sequences which eventually repeat an identical element indefinitely. For any other sequence, the distance between any non-identical points can never be less than any epsilon less than 1.
+
+\begin{exercise}{2.6}                                                                                      Prove (by definition) that the sequence 1/n converges to zero in the usual metric of R                     \end{exercise}
+For any point $x_n = \frac{1}{n}$, let $\epsilon = \frac{1}{n}$ and $N = n$. The distance from 0 to $x_n$ for any $n > N$ is by definition less than $\epsilon$ since $\frac{1}{n+x} < \frac{1}{n}$ where x is a positive non-zero number.
+
+\begin{exercise}{2.7}                                                                                      Show that if a sequence of distinct elements in E converges to p then p is in E'.                          \end{exercise}
+Let x be the element to which the sequence converges. Let $P_n$ be the notation for an element in the sequence. For every $N(x)_\epsilon$, choose the N such that $d(p_N, x) < \epsilon$ which must exist by definition of convergent. Therefore, for any neighborhood of x there is at least one element in the sequence in the neighborhood. Since every element of the sequence is in E, then x is a limit point of E.
+
+% --------------------------------------------------------------
+%     You don't have to mess with anything below this line.
+% --------------------------------------------------------------
+ 
+\end{document}

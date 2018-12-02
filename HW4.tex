@@ -1,0 +1,114 @@
+% --------------------------------------------------------------
+% This is all preamble stuff that you don't have to worry about.
+% Head down to where it says "Start here"
+% --------------------------------------------------------------
+ 
+\documentclass[12pt]{article}
+ 
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+ 
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{reflection}[2][Reflection]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{proposition}[2][Proposition]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+ 
+\begin{document}
+ 
+% --------------------------------------------------------------
+%                         Start here
+% --------------------------------------------------------------
+ 
+%\renewcommand{\qedsymbol}{\filledbox}
+ 
+\title{Homework 4}%replace X with the appropriate number
+\author{William Held\\ %replace with your name
+Real Analysis} %if necessary, replace with your course title
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\abs}[1]{|#1|}
+\let\biconditional\leftrightarrow
+\maketitle
+\begin{exercise}{1.1}
+ Determine when the equality is attained in Cauchy-Schwarz.
+\end{exercise}
+Trivially, Cauchy-Schwarz is an equality if either element is zero. $\langle x, y \rangle = 0$ when y = 0 and $\norm{x}\norm{y} = 0$ when y = 0. This can be done without loss of generality since if x is zero it can be swapped with y.
+
+More interestingly, Cauchy-Schwarz is an equality $\iff$ x and y are linearly dependent. 
+
+$\Leftarrow$ $\abs{\langle x, y \rangle} = \abs{\langle x, \lambda x \rangle} = \abs{\lambda} \abs{\langle x, x \rangle} = \abs{\lambda} \norm{x}^2 == \norm{x} \norm{\lambda x}$
+
+$\implies$ $\norm{x}^2 - 2\lambda\langle u,v \rangle + \lambda^2\norm{y}^2 = 0 \therefore 4\lambda^2\langle x,y \rangle^2 = 4\lambda^2\norm{x}^2\norm{y}^2$ Don't know how to finish the if
+\begin{exercise}{1.2}
+Describe neighborhoods in $\norm{}_{infty}$.
+\end{exercise}
+Neighborhoods in $\norm{}_{infty}$ are topological cubes.
+
+\begin{exercise}{1.3}
+Limit points of the union versus unions of the limit points.
+\end{exercise}
+
+Any set E is a subset of any set that includes the Union of E. Earlier, we have proved that any point that is a limit point of a subset is also a limit point of the respective superset. The union of all $E\prime$ is the set of all limit points in each subset $E$. By our earlier proof of limit points in subsets, this means that all limit points of E are also limit points of the union of all E's. This means that the limit points of the union are equivalent to the unions of the limit points.
+
+\begin{exercise}{1.4}
+Describe $E\prime$ in  the discrete space.
+\end{exercise}
+The set of limit points in discrete space is always the empty set. For any point x in arbitrary set E has a neighborhood with distance less than 1 such that x is the only point in that neighborhood. This means that by definition, every point has a neighborhood with no point in it from any set we wish to limit. No points in the discrete space can be limits.
+
+\begin{exercise}{1.5}
+Remove the question mark in the proof of $E\prime\prime$ containment in $E\prime$. 
+\end{exercise}
+Choose $\delta > 0$ such that $N_{\delta}(y)\subset N_{r}(x)$ . This $\delta = r - d(x,y)$.
+
+\begin{exercise}{2.1}
+Prove the equivalence of three definitions of boundedness.
+\end{exercise}
+Forgot to note all three definitions of boundedness...
+
+\begin{exercise}{2.2}
+Prove that notions of boundedness in R as an ordered set and a  metric space (with the usual metric) are equivalent. 
+\end{exercise}
+
+Ordered Set $\implies$ Metric Space. A set $E$ is bounded in $X$ if there is a $M \in X$ such that $a < M $ and a $N \in X$ such that $a > N$ for all $a \in E$. If we take the largest M and the smallest N and the largest element of E and the smallest element of E, which we can since X is ordered, and calculate the metric between them we know that $d(a_{min}, a_{max}) < d(N_{min}, M_{max})$. Since we know that infinity is greater than or equal to all numbers then the fact that $d(a_{min}, a_{max})$ is strictly less than another number means that $d(a_{min}, a_{max}) < \infty$
+
+Metric Space $\implies$ Ordered Set. We know the diameter of the set is less than infinity. Don't know how to enfore an order onto the set to use this definition.
+
+
+\begin{exercise}{2.3}
+Which subsets of the discrete space are open? closed? bounded? dense? compact?  
+\end{exercise}
+Any set of points in discrete space is closed, since there are no limit points to be contained in the set. The any set of points in discrete space is open, since it is the complement of another set of points in discrete space which must be closed. Since the maximum distance in discrete space is one, all sets in discrete space are bounded. The set of all points in Discrete Space is the only dense subset, since points cannot be limit points of a subset, they must then be included in the subset. Any finite set in discrete space is compact.
+
+\begin{exercise}{2.4}
+Prove (directly by the definition) that the set \{$\frac{1}{n}: n \in \N $\} in $\mathbb{R}$ is not compact.
+\end{exercise}
+Let $E = \{\frac{1}{n}: n \in \N \}$. Since the limit of E is zero and zero is not in E, each point in E is not a limit point. Therefore, we can say that there exists a $\delta$ for each point x in E such that $N_{\delta}(x)$ contains not a single point of E besides x. Assume that we have an open cover made up of each of these neighborhoods for all elements in E. Since each neighborhood contains only it's own x, each x is contained in no other neighborhoods. Therefore if any neighborhood is removed, we no longer have a cover. Since there is a neighborhood for every x and there are infinitely many points in the set, the number of neighborhoods is infinite. Therefore, there exists an open cover that does not have a finite subcover and $\{\frac{1}{n}: n \in \N \}$ is not compact.
+
+\begin{exercise}{2.5}
+Prove that in any metric space compact $\implies$ bounded.
+\end{exercise}
+Trivially, any finite set is both compact and bounded. \\
+\\
+For infinite sets, any set is covered by an infinite number of neighborhoods of radius one, with the origin of no two neighborhoods being equal. If a set is compact, this means that there exists a subcover of this infinite number of radius one neighborhoods. The radius of the subcover is the sum of its component radii. Since there are a finite number of sets in the subcover, this radius must be finite. The radius of a set must be less than the radius of it's cover. Therefore, the radius of the set is less than a finite number and is by definition bounded.
+
+\begin{exercise}{2.6}
+Prove that the set of (ir)rational numbers is dense in R in the new sense. 
+\end{exercise}
+Since we know between two real numbers there are an infinite number of rational numbers, therefore for any real number not in the set of rational numbers we can choose a rational number that exists between the number and any other second real number. Then, set this rational number as our new second number. We know that there is another rational number between that and our original point. If we continue this process, there is an infinite number of rational numbers in the neighborhood of any real number that is not in the set of rational numbers. Therefore, any real number is either a rational number or a limit point of the set of rational numbers and is therefore dense.
+
+% --------------------------------------------------------------
+%     You don't have to mess with anything below this line.
+% --------------------------------------------------------------
+ 
+\end{document}

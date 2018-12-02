@@ -1,0 +1,120 @@
+% --------------------------------------------------------------
+% This is all preamble stuff that you don't have to worry about.
+% Head down to where it says "Start here"
+% --------------------------------------------------------------
+ 
+\documentclass[12pt]{article}
+ 
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+ 
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{reflection}[2][Reflection]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{proposition}[2][Proposition]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+ 
+\begin{document}
+ 
+% --------------------------------------------------------------
+%                         Start here
+% --------------------------------------------------------------
+ 
+%\renewcommand{\qedsymbol}{\filledbox}
+ 
+\title{Homework 9}%replace X with the appropriate number
+\author{William Held\\ %replace with your name
+Real Analysis} %if necessary, replace with your course title
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\abs}[1]{|#1|}
+\newcommand{\ceil}[1]{\left \lceil #1 \right \rceil }
+\newcommand{\floor}[1]{\left \lfloor #1 \right \rfloor }
+\let\biconditional\leftrightarrow
+\maketitle
+
+\begin{exercise}{1.1}
+Prove: Any polynomial of odd degree with real coefficients has at least one real root.
+\end{exercise}
+Any polynomial of odd degree has at least one value that is negative and at least one value that is positive. Therefore, by the intermediate value theorem, it must be zero at some point.
+
+\begin{exercise}{R4.2}
+If f is a continuous mapping of a metric space X into a metric space Y, prove that $$F(\overline{E}) \supset \overline{f(E)}$$
+for every set $E \supset X$. Show, by an example, that $f(\overline{E})$ can be a proper subset of $\overline{f(E)}$
+\end{exercise}
+Take $x\in\overline{E}$. Take an open ball around $f(x)$. Since f is continuous, the pre-image of $f(x)$ is also an open ball around x. Since x is in the closure of E, this means that there is a point from E in the pre-image of $f(x)$ (Since x is either a point of E itself or a limit point of E). Call this point y. $f(y)$ is in the neighborhood of $f(x)$. Since we chose an abstract neighborhood of $f(x)$ this means that every neighborhood of $f(x)$ contains a point from $f(E)$ and $f(x) \in \overline{f(E)}$. Consider the example from out last homework, $\frac{1}{1+x^2}$. Let E be the whole real line. The image of the closure is (0,1]. The closure of the image is [0, 1].
+
+\begin{exercise}{R4.3}
+Let f be a continuous real function on a metric space X. Let Z(f)(the zero set of F) be the set of all $p\in X$ at which $f(p)=0$. Prove that Z(f) is closed.
+\end{exercise}
+Since the image of Z(f) is simply a singleton point - 0, then it is the pre-image of a closed set. Since f is continuous, Z(f) is closed. 
+
+\begin{exercise}{R4.14}
+Let $I=[0,1]$ be the closed unit interval. Suppose f is a continuous mapping of I into I. Prove that $f(x)=x$ for at least one $x\in I$
+\end{exercise}
+...
+
+\begin{exercise}{R4.15}
+Call a mapping of X into Y open if f(V) is an open set in Y whenever V is an open set in X. 
+Prove that every continuous open mapping of $\mathbb{R}^1$ into $\mathbb{R}^1$ is monotonic
+\end{exercise}
+Take arbitrary open interval (a,b) and it's image. By the definition of open function, the image of this set must be open. Suppose the function is not monotonic. Therefore there exists a point c s.t. $a < c < b$ but $f(a) < f(b) < f(c)$. Consider sets (a,c) and (c,b), both of which should map to open sets in the function. f((a,c)) $\supset$ f((c,b)) which means f(c) $\in$ f((a,b)). Since $f((a,c)) \supset f((a,b))$ this means that f((a,c)) contains f(c) and is therefore closed.
+
+\begin{exercise}{R4.16}
+Let $[x]$ denote the largest integer contained in x, that is, $[x]$ is the interger such that $x-a < [x] \leq x$; and let $(x)=x=[x]$ denote the fractional part of x. What discontinuities do the functions $[x]$ and $(x)$ have?
+\end{exercise}
+\begin{exercise}{R4.18}
+Every rational x can be written in the form $x = m/n$, where $n>0$, and m and n are integers without any common divisors. When $x=0$, we take $n=1$. Consider the function f defined on $\mathbb{R}^1$ by $$f(x)=\begin{array}{cc}
+  \{ & 
+    \begin{array}{cc}
+      0 & (\text{x irrational})\\
+      \frac{1}{n} & (x=\frac{m}{n})
+    \end{array}
+\end{array}$$
+Prove that f is continuous at every irrational point, and that f has a simple discontinuity at every rational point.
+\end{exercise}
+For each irrational number x, there is a series of rationals approaching with non-decreasing denominators. Therefore, for any $\epsilon > 0$ where $\epsilon \geq \frac{1}{N}$ an N can be chosen such that all rational points with $n > N$ are closer to 0 than epsilon. Therefore, at irrational points f is continuous.
+
+At rational points, for any neighborhood of the rational point there are an infinite number of irrational points. This means that for any $\delta$ there will be at least one irrational point in the neighborhood. Since an epsilon can always be chosen such that $\epsilon < d(0, \frac{1}{n})$, there is always a simple discontinuity at a rational point.
+
+\begin{exercise}{2.1}
+Construct a function discontinuous everywhere except for finitely many points $a_1, a_2,...$(and continuous at these points)
+\end{exercise}
+Take $$f(x)=\begin{array}{cc}
+  \{ & 
+    \begin{array}{cc}
+      0 & (\text{x irrational})\\
+      x & (\text{x rational})
+    \end{array}
+\end{array}$$
+which is only continuous at 0. Construct a piece-wise defined function s.t. for every neighborhood of size 1 of $a_1, a_2,...$ the function is defined as $f(x-a_n)$ and is a function that is discontinuous across all reals everywhere else. This function is continuous only at $a_1, a_2,...$ which are a finite number of points selected by construction.
+
+\begin{exercise}{2.2}
+Prove that $\sin(\frac{1}{x})$ has discontinuity of a second kind at 0.
+\end{exercise}
+Choose a series of positive decreasing points x approaching 0 such that $x_n = \frac{1}{2\pi n}$. $lim_{n\rightarrow\infty}2\pi n = 0$. Then let $x_n = \frac{1}{2\pi n+\frac{\pi}{2}}$. $lim_{n\rightarrow\infty}2\pi n+\frac{\pi}{2} = 1$. Continue this process and the limit can be an infinite number of values meaning a one sided limit cannot exist on the positive side and this is a discontinuity of the second kind.
+\begin{exercise}{2.3}
+Construct an increasing function on [0,1] taking values in [0,1] and having infinitely many discontinuities.
+\end{exercise}
+(Can't think of strictly increasing example) A step-wise defined function where every other number equals the number before it.
+
+\begin{exercise}{2.4}
+Write a formal definition of a variation of limit (of your choice, but not covered in class). Provide an example of a function satisfying this definition. 
+\end{exercise}
+
+$lim_{x\rightarrow+c}f(x)=-\infty \equiv \forall B<0 \exists \delta > 0\forall x (x<x<x+\delta \implies f(x) < B)$ i.e. $f(x)=-\frac{1}{x}$
+% --------------------------------------------------------------
+%     You don't have to mess with anything below this line.
+% --------------------------------------------------------------
+ 
+\end{document}

@@ -1,0 +1,137 @@
+% --------------------------------------------------------------
+% This is all preamble stuff that you don't have to worry about.
+% Head down to where it says "Start here"
+% --------------------------------------------------------------
+ 
+\documentclass[12pt]{article}
+ 
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+ 
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{reflection}[2][Reflection]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{proposition}[2][Proposition]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+ 
+\begin{document}
+ 
+% --------------------------------------------------------------
+%                         Start here
+% --------------------------------------------------------------
+ 
+%\renewcommand{\qedsymbol}{\filledbox}
+ 
+\title{Homework 3}%replace X with the appropriate number
+\author{William Held\\ %replace with your name
+Real Analysis} %if necessary, replace with your course title
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\abs}[1]{|#1|}
+\let\biconditional\leftrightarrow
+\maketitle
+\begin{exercise}{1.1}
+Show that a normed space is a metric space.
+\end{exercise}
+Let $D(x,y) = \norm{x-y}$. \\
+
+Since $\norm{x-y} \geq 0$, then $D(x,y) \geq 0$. Thus, we have the first property of a metric. If $\norm{x-y} = 0$, then $(x - y) = 0$. \\ 
+
+If $(x - y) = 0$, then $x=y$. Additionally, if $x=y$ then $x-y = 0$ and $\norm{x-y} = 0$. Thus, $D(x,y) = 0 \biconditional x=y$, or the second property of a metric space. \\ 
+
+$\norm{x-y} = \norm{-1*(y-x)} = \abs{-1}\norm{y-x} = 1*\norm{y-x} = \norm{y-x}$. Thus, $D(x,y) = D(y,x)$, or the third property of a metric space. \\
+
+Let $A = x-y$ and $B = y-z$. By the fourth property of a norm, we know that $\norm{A+B} \leq \norm{A}+\norm{B}$. Therefore, $\norm{x-y+y-z} \leq \norm{x-y}+\norm{y-z}$ and therefore $\norm{x-z} \leq \norm{x-y}+\norm{y-z}$, or the fourth and final property of a metric space.
+
+
+\begin{exercise}{1.2}
+Check the norm properties for $\norm{ }_{1}$ and $\norm{}_{\infty}$.
+\end{exercise}
+A.
+Define $\norm{x}_{1} = \sum_{i=1}^{n} \abs{x_i} $. 
+
+For the first property, let x be a vector of one dimension. Then, $\sum_{i=1}^{1} \abs{x_i} = \abs{x_1}$. We know that the absolute value of a number is $\geq 0$. Let x now be a vector of size n for which the first property holds. Then, add a dimension to it. We know that $\sum_{i=1}^{N} \abs{x_i} \geq 0$. $\sum_{i=1}^{N+1} \abs{x_i} = (\sum_{i=1}^{N} \abs{x_i}) + \abs{x_{n+1}}$. Since $\abs{x_{n+1}} \geq 0$ and $\sum_{i=1}^{N} \abs{x_i} \geq 0$, then $(\sum_{i=1}^{N} \abs{x_i}) + \abs{x_{n+1}} \geq 0$. \\
+
+For the second property, let x be a vector of one dimension. Then, $\sum_{i=1}^{1} \abs{x_i} = 0$ if and only if $x_i=0$. Let x now be a vector of size n for which the first property holds. Then, add a dimension to it. We know that $\sum_{i=1}^{N} \abs{x_i} = 0$ if and only if all $x_i$ are equal to 0. $\sum_{i=1}^{N+1} \abs{x_i} = (\sum_{i=1}^{N} \abs{x_i}) + \abs{x_{n+1}}$. Since $\abs{x_{n+1}} = 0$ if and only if $x_{n+1}=0$ and $\sum_{i=1}^{N} \abs{x_i} = 0$ if and only if all $x_i$ are equal to 0, then again the norm is 0 if and only if all x are 0. \\
+
+For the third property, $\norm{\gamma*x}_{1} = \sum_{i=1}^{n} \abs{\gamma * x_i} = \sum_{i=1}^{n} \abs{\gamma}*\abs{x_i} = \abs{\gamma} \sum_{i=1}^{n} \abs{x_i} = \abs{\gamma}\norm{x}_{1}$ \\ 
+
+For the fourth property, $\norm{x+y}_1 = \sum_{i=1}^{n} \abs{x_i+y_i}$. $\sum_{i=1}^{n} \abs{x_i+y_i} \leq \sum_{i=1}^{n} \abs{x_i} + \abs{y_i} \therefore \sum_{i=1}^{n} \abs{x_i+y_i} \leq \sum_{i=1}^{n} \abs{x_i} + \sum_{i=1}^{n} \abs{y_i} \therefore \norm{x+y}_1 \leq \norm{x}_1 + \norm{y}_1$ \\
+
+B.
+Define $\norm{x}_{\infty} = max\abs{x_i} $. 
+
+For the first property, since all $\abs{x_i} \geq 0$ then their maximum must be greater than or equal to zero.\\
+
+For the second property, if the maximum value of x is zero, all values must be zero since we know all $x_i \geq 0$\\
+
+For the third property, $\norm{\gamma*x}_{\infty} = max\abs{\gamma*x_i} = \max(\abs{\gamma}*\abs{x_i}) = \abs{\gamma}*\max(\abs{x_i}) = \abs{gamma}*\norm{x}_{\infty}$\\ 
+
+For the fourth property, for i chosen as $max\abs{x_i+y_i}$ we know that $\abs{x_i} \leq max\abs{x_j}$ and the same for $y$. Since each element in the sum $\abs{x_i+y_i}$ is either the maximum value in it's vector or less than that max, we know that $\abs{x_i+y_i} \leq max\abs{x_j} + max\abs{y_j}$
+
+\begin{exercise}{1.3}
+Check norm properties (i), (ii) for $\norm{}_{2}$.
+\end{exercise}
+For the first property: The square of any value is positive or 0. The sum of all non-negative numbers must be non-negative. Finally, the square root of a non-negative number still must be non-negative. Therefore, the first property holds.\\
+
+For the second property: A square root is equal to 0 if and only if its component is 0. A sum of non-negative numbers equals zero if and only if all of the numbers in the sum are zero. Therefore, the $\norm{x}_{2} = 0$ if and only if all components of x are zero.
+
+\begin{exercise}{2.1}
+Show that if x is the limit point of a set A and  A is a subset of B, then x is the limit point of B as well.
+\end{exercise}
+If x is a limit point of A, it means that it contains at least one point of A in any possible neighborhood you can create for x. Since $A\subset B$ then any $y\in A$ is by definition $y in B$. Therefore, x has at least one point of B in any possible neighborhood you can create for it, and is therefore a limit point of B.
+
+\begin{exercise}{2.2}
+Show that if x is the interior point of a set A and  A is a subset of B, then x is the interior point of B as well.
+\end{exercise}
+If x is an interior point of A, then there exists a neighborhood where all points in the neighborhood exist in A. Since $A\subset B$ then any $y\in A$ is by definition $y in B$. Therefore, there exists a neighborhood of x where all points in the neighborhood exist in B, and x is therefore interior to B.
+
+\begin{exercise}{2.3}
+Prove that E is an open set if and only if  $E^{c}$ is closed.
+\end{exercise}
+Assume that E is an open set. Let x be a limit point of $E^c$. Since by definition of a limit point, every neighborhood of x contains at least one $y \in E^c$, then x is not internal to E. All points of an open set are internal, which means that x is an element of $E^{c}$. Therefore, $E^{c}$ is closed.
+
+Assume that $E^{c}$ is a closed set. Let x be a limit point of E.
+
+...stuck
+
+\begin{exercise}{2.4}
+ Prove that the union of two closed sets is closed
+\end{exercise}
+Given two sets, X and Y let $Z = X \cup Y$. By definition of union, Z contains all points contained in X and all points contained in Y. Therefore, every limit point of X and Y is still contained in Z. Assume there is a new limit point that was not a limit of either X nor Z. Therefore, there must be a neighborhood of this new limit point that does not intersect with either X nor Y, otherwise it would be a limit point of X or Y and must be included in them by the definition of closed. However, such a neighborhood where the new point does not intersect either X nor Y does not intersect Z. Contradiction.
+\begin{exercise}{2.5}
+Prove that the intersection of two open sets is open.
+\end{exercise}
+Given two sets, X and Y let $Z = X \cap Y$. For any point x contained in both X and Y, there exists $r_x$ and $r_y$ such that $N_{r_x}(x) \subset X \& N_{r_y}(x) \subset Y$. One of $r_x$ and $r_y$ is smaller than the other, meaning that one of $N_{r_x}(x) \subset X$ and $N_{r_y}(x) \subset Y$. Therefore, that subset is contained in Z, and every x that is contained in both X and Y, and therefore contained in Z, is interior to Z via the smaller of the two neighborhoods.
+
+\begin{exercise}{2.6}
+Prove that the intersection of any number (finite or infinite) of closed sets is closed. Provide the example showing that for the union the same theorem is not true.
+\end{exercise}
+
+... how to prove for infinite number of sets
+
+Counterexample for the union theorem: If you take infinitely many unions of the form $[1/n, 1]$ you will eventually reach $(0, 1]$.
+
+\begin{exercise}{2.7}
+Prove that the union of any number (finite or infinite) of open sets is open. Provide the example showing that for the intersection the same theorem is not true.
+\end{exercise}
+
+... how to prove for infinite number of sets
+
+Counterexample for the intersection theorem: If you take infinitely many intersections of the form $(-1/n, 1/n)$ you will eventually reach ${0}$ which is closed.
+
+% --------------------------------------------------------------
+%     You don't have to mess with anything below this line.
+% --------------------------------------------------------------
+ 
+\end{document}
